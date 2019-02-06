@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Formulario</title>
+    
+</head>
+<body>
+    {% if info_en %}
+        <h2>La infomación enviada es:</h2>
+        {{ nombre }}
+        {{  resenia }}
+    {% else %}
+        <form action="" method="POST">
+            {% csrf_token %}
+            {{ formulario.as_p }}
+            <input type="submit" value="Enviar" />
+        </form>
+    {% endif %}
+</body>
+</html>
