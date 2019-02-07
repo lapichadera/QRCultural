@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Listado</title>
+</head>
+<body>
+    <h2>Lista de productos</h2>
+    {% for l in lista %}
+        <p>
+            Nombre: {{ l.nombre }}
+            <img src="/media/{{ l.imagen }}"/>
+            <img src="/media/{{ l.imagenTSS }}"/>
+            <img src="/media/{{ l.imagenTSS1 }}"/>
+
+        </p>
+    {% endfor %}
+</body>
+</html>
