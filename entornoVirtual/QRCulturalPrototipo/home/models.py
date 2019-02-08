@@ -19,6 +19,6 @@ class Sitio (models.Model):
     patrono = models.CharField(max_length = 100)
     principalesCambios = models.TextField(max_length = 500)
     ubicacion = models.CharField(max_length = 100)
-
+    imgQR = models.CharField(max_length=500)
     def __str__(self):
         return self.nombre

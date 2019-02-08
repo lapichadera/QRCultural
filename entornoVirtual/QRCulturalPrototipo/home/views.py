@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from .models import Sitio
 from .forms import *
+import qrcode
 
 # Create your views here.
 
@@ -16,11 +17,18 @@ def vista_formulario(request):
         if formulario.is_valid():
             info_en=True
             sitio=formulario.save(commit=False)
+            img = qrcode.make("https://pypi.org/project/qrcode/")
+            texto = sitio.nombre
+            f = open("media/imagenQR/"+texto+".png", "wb")
+            img.save(f)
+            f.close()
+            sitio.imgQR="/media/imagenQR/"+texto+".png"
             sitio.save()
             formulario.save_m2m()
             return redirect('/')
         else:
             formulario = sitio_form()
+            print("no se está guardando")
     return render(request,"formulario.html",locals())
 
 
