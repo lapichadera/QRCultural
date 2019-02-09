@@ -1,20 +1,29 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <title>Listado</title>
-</head>
-<body>
-    <h2>Lista de productos</h2>
-    {% for l in lista %}
-        <p>
-            Nombre: {{ l.nombre }}
-            <img src="/media/{{ l.imagen }}"/>
-            <img src="/media/{{ l.imagenTSS }}"/>
-            <img src="/media/{{ l.imagenTSS1 }}"/>
-            <img src="{{ l.imgQR }}"/>
+{% extends 'base.html' %}
 
-        </p>
+{% block titulo %}
+    Sitios
+{% endblock %}
+{% block titulop %}
+    <h2>Lista de productos</h2>
+{% endblock %}
+
+{% block contenido %}
+
+    {% for s in lista %}
+        <div class="row">
+            <div class="col s12 m6">
+              <div class="card">
+                <div class="card-image">
+                  <img src="/media/{{ s.imagen }}">
+                  <span class="card-title">{{ l.nombre }}</span>
+                  <a class="btn-floating halfway-fab waves-effect waves-light red" href="{% url 'detalle_sitio' id_s=s.id %}"><i class="material-icons">add</i></a>
+                </div>
+                <div class="card-content">
+                  <h5>{{ s.resenia }}</h5>
+                </div>
+              </div>
+            </div>
+        </div>
     {% endfor %}
-</body>
-</html>
+    
+{% endblock %}

@@ -17,7 +17,8 @@ def vista_formulario(request):
         if formulario.is_valid():
             info_en=True
             sitio=formulario.save(commit=False)
-            img = qrcode.make("https://pypi.org/project/qrcode/")
+            id_proximo=Sitio.objects.count()+1
+            img = qrcode.make("http://127.0.0.1:8000/sitio/"+str(id_proximo))
             texto = sitio.nombre
             f = open("media/imagenQR/"+texto+".png", "wb")
             img.save(f)
@@ -35,3 +36,8 @@ def vista_formulario(request):
 def vista_listar_sitios(request):
     lista = Sitio.objects.filter()
     return render(request,"listaSitios.html",locals())
+
+def vista_detalle_sitio(request, id_s):
+    sitio = Sitio.objects.get(id=id_s)
+    return render(request,"detalle.html",locals())
+

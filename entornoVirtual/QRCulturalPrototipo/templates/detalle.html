@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block titulo %}
+    {{ sitio.nombre }}
+{% endblock %}
+{% block titulop %}
+{% endblock %}
+{% block contenido %}
+	<div class="row center">
+		<div class="col s10 offset-s1">
+			<h2 class="header">{{ sitio.nombre }}</h2>
+			<div class="card vertical">
+				<div class="card-content">
+					<div class="card-image">
+						<img src="/media/{{ sitio.imagen }}">
+					</div>
+				</div>
+				<div class="card-stacked">
+					<div class="card-content">
+						<p>{{ sitio.resenia }}</p>
+					</div>
+					<div class="card-tabs">
+						<ul class="tabs tabs-fixed-width">
+							<li class="tab"><a href="#submenu1">Datos de interés</a></li>
+							<li class="tab"><a href="#submenu2">Fecha de construcción</a></li>
+							<li class="tab"><a href="#submenu3">Ubicación</a></li></ul>
+					</div>
+					<div class="card-content">
+						<div id="submenu1">{{ sitio.datosInteres }}</div>
+						<div id="submenu2">{{ sitio.anio }}</div>
+						<div id="submenu3">{{ sitio.ubicacion }}</div>
+					</div>
+				</div>
+				<div class="card-tabs">
+						<ul class="tabs tabs-fixed-width">
+							<li class="tab"><a href="#submenuI1">Imagen 360 1</a></li>
+							<li class="tab"><a href="#submenuI2">Imagen 360 2</a></li>
+						</ul>
+				</div>
+				<div class="card-content">
+					<div class="card-image" id="submenuI1"><img src="/media/{{ sitio.imagenTSS }}"/></div>
+					<div class="card-image" id="submenuI2"><img src="/media/{{ sitio.imagenTSS1 }}"/></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<img class="right" height="80" src="{{ sitio.imgQR }}">
+
+{% endblock %}

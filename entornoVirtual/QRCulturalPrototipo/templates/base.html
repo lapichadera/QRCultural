@@ -1,0 +1,47 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/materialize.min.css' %}">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+
+	<title></title>
+</head>
+<body>
+	<header class="center">
+			{% block titulop %}
+
+			{% endblock %}
+	</header>
+	<nav class="nav-extended">
+		<div class="nav-wrapper">
+		<a href="#" data-activates="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+	    <ul id="nav-mobile" class="left hide-on-med-and-down">
+	      	<li><a href="{% url 'index' %}">Página Principal</a></li>
+			<li><a href="{% url 'sitios' %}">Sitos</a></li>
+	    </ul>
+	    <ul class="side-nav" id="mobile-demo">
+	    	<li><a href="{% url 'index' %}">Página Principal</a></li>
+			<li><a href="{% url 'sitios' %}">Sitos</a></li>
+  		</ul>
+	    </div>
+	</nav>
+	<script type="text/javascript">
+	  $(document).ready(function(){
+	    $('.sidenav-trigger').sideNav();
+	  	});
+	</script>
+
+		{% block contenido %}
+		
+		{% endblock%}
+
+
+
+
+</body>
+</html>
