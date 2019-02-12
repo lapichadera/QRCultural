@@ -1,0 +1,24 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/materialize.min.css' %}">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+
+	<title>Login</title>
+</head>
+<body>
+	{% if user.is_active %}
+	<p class="center">Está página no está disponible por el momento</p>
+	{% else%}
+	<form action="" method="POST" enctype="miltipart/form-data">
+		{% csrf_token %}
+		{{ formulario.as_p }}
+	<a class="waves-effect waves-teal"><input type="submit" value="Log in"></a>
+	{% endif %}
+</body>
+</html>

@@ -1,0 +1,55 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/materialize.min.css' %}">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+
+	{% block estilos %}
+
+	{% endblock %}
+	<title></title>
+</head>
+<body>
+	{% if user.is_active %}
+		<nav class="nav-extended">
+			<div class="nav-wrapper">
+			<a href="#" data-activates="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+			<a href="{% url 'opciones'%}" class="brand-logo">Administrador de la paginá</a>
+		    <ul id="nav-mobile" class="right hide-on-med-and-down">
+		    
+		      	<li>Bienvenido {{user.username}}</li>
+				<li><a href="{% url 'index' %}">Sitio Web</a></li>
+				<li><a href="{% url 'logout' %}">LogOut</a></li>
+		    </ul>
+		    <ul class="side-nav" id="mobile-demo">
+		    	<li><a href="{% url 'opciones'%}">Administrador de la paginá</a></li>
+		      	<li>Bienvenido {{user.username}}</li>
+				<li><a href="{% url 'index' %}">Sitio Web</a></li>
+				<li><a href="{% url 'logout' %}">LogOut</a></li>
+	  		</ul>
+		    </div>
+		</nav>
+		<header class="center">
+				{% block titulop %}
+
+				{% endblock %}
+		</header>
+		{% block contenido%}
+
+		{% endblock %}
+		<script type="text/javascript">
+		  $(document).ready(function(){
+		    $('.sidenav-trigger').sideNav();
+		  	});
+		</script>
+	{% else %}
+		<p class="center">Esta página no está disponible</p>
+	{% endif %}
+
+</body>
+</html>
