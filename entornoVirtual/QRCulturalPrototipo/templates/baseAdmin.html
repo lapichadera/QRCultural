@@ -19,7 +19,7 @@
 		<nav class="nav-extended">
 			<div class="nav-wrapper">
 			<a href="#" data-activates="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-			<a href="{% url 'opciones'%}" class="brand-logo">Administrador de la paginá</a>
+			<a href="{% url 'opciones'%}" >Administrador de la paginá</a>
 		    <ul id="nav-mobile" class="right hide-on-med-and-down">
 		    
 		      	<li>Bienvenido {{user.username}}</li>
@@ -34,11 +34,6 @@
 	  		</ul>
 		    </div>
 		</nav>
-		<header class="center">
-				{% block titulop %}
-
-				{% endblock %}
-		</header>
 		{% block contenido%}
 
 		{% endblock %}

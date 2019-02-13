@@ -1,0 +1,30 @@
+{% extends 'baseAdmin.html' %}
+{% load staticfiles %}
+{% block contenido%}
+
+{% block estilos %}
+	<link rel="stylesheet" type="text/css" href="{% static 'css/listaSitios.css'%}">
+{% endblock %}
+	
+	<br/>
+	<div class="ext-box">
+		<div class="left int-box"><span>Seleciona el sitio a cambiar</span></div>
+		<div class="right int-box"><a class="waves-effect cyan waves-blue btn" href=" {% url 'formulario_sitios' %}">Añadir un sitio</a></div>
+	</div>
+	<div class="row">
+		{% for sitio in lista %}
+			<div class="col s12 m6">
+				<a href="{% url 'editar_sitio' id_s=sitio.id %}">
+					<div class="card">
+						<div class="card-image waves-effect waves-light">
+							<img src="/media/{{ sitio.imagen }}">
+						</div>
+						<div class="card-content">
+							<h5 class="card-title black-text">{{ sitio.nombre }}</h5>
+						</div>
+					</div>
+				</a>
+		  	</div>
+		{% endfor %}
+	</div>
+{% endblock %}

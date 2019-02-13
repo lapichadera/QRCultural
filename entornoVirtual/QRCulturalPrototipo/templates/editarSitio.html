@@ -1,0 +1,49 @@
+{% extends 'baseAdmin.html' %}
+{% load staticfiles %}
+
+{% block estilos %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/formulario.css' %}"/>
+{% endblock %}
+{% block contenido%}
+{% if info_en %}
+    <h2>La infomación enviada es:</h2>
+    {{ nombre }}
+    {{  resenia }}
+{% else %}
+    <div class="container" id="principal">
+        <form class="row" action="" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="row">
+                {% for field in formulario %}
+
+
+                    {% if field.name in inputTexts %}
+                    <div class="input-field col s12 m6 l6">
+
+                        {{ field.errors }}
+                        {{ field.label_tag }}
+                        {{ field }}
+                        <div class="divider"></div>   
+                    </div>
+                    {% else %}
+                    <div class="col s12">
+                        {{ field.errors }}
+                        <div class="section">
+                            <div class="col s12 m12 l12 labelA">{{ field.label_tag }}</div>
+                            {{ field }}
+                        </div>
+                        <div class="divider"></div>   
+                    </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+            <input class="btn blue waves-effect waves-green right" type="submit" value="Modificar" />
+            <a class="btn red waves-effect waves-orange left" href="{% url 'eliminar_sitio' id_s=sitio.id user_id=user.id %}">Eliminar</a>
+        </form>
+    </div>
+    
+{% endif %}
+{% endblock %}
+
+
+

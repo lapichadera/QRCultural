@@ -3,6 +3,7 @@ from .models import Sitio
 from .forms import *
 import qrcode
 from django.contrib.auth import login, logout, authenticate
+from django.contrib.auth.models import User
 
 # Create your views here.
 
@@ -50,7 +51,7 @@ def vista_formulario(request):
             sitio.imgQR="/media/imagenQR/"+texto+".png"
             sitio.save()
             formulario.save_m2m()
-            return redirect('/')
+            return redirect('/adminis/opciones/lista')
         else:
             formulario = sitio_form()
             print("no se está guardando")
@@ -61,6 +62,10 @@ def vista_listar_sitios(request):
     lista = Sitio.objects.filter()
     return render(request,"listaSitios.html",locals())
 
+def vista_listar_sitios_crud(request):
+    lista = Sitio.objects.filter()
+    return render(request,"listaSitiosOp.html",locals())
+
 def vista_detalle_sitio(request, id_s):
     sitio = Sitio.objects.get(id=id_s)
     return render(request,"detalle.html",locals())
@@ -68,3 +73,24 @@ def vista_detalle_sitio(request, id_s):
 def vista_opciones_admin(request):
     return render(request,"opciones.html",locals())
 
+def vista_editar_sitio(request,id_s):
+    sitio= Sitio.objects.get(id=id_s)
+    if request.method=='POST':
+        formulario= sitio_form(request.POST, request.FILES, instance=sitio)
+        if formulario.is_valid:
+            sitioM=formulario.save(commit=False)
+            sitioM.save()
+            return redirect('/adminis/opciones/lista')
+        else:
+            formulario= sitio_form(instance=sitio)
+
+    formulario= sitio_form(instance=sitio)
+
+    return render(request,'editarSitio.html',locals())
+
+def vista_eliminar_sitio (request, id_s,user_id):
+    user = User.objects.get(id=user_id)
+    if user.is_active:
+        sitioE= Sitio.objects.get(id=id_s)
+        sitioE.delete()
+    return redirect("/adminis/opciones/lista")

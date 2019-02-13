@@ -3,22 +3,47 @@
 <html>
 <head>
 	<link rel="stylesheet" type="text/css" href="{% static 'css/materialize.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+	{% if user.is_active %}
 
+	<meta http-equiv="Refresh" content="2; url={% url 'opciones'%}" />
+
+	{% endif %}
 	<title>Login</title>
+	
 </head>
-<body>
+<body class="container row">
 	{% if user.is_active %}
 	<p class="center">Está página no está disponible por el momento</p>
 	{% else%}
-	<form action="" method="POST" enctype="miltipart/form-data">
-		{% csrf_token %}
-		{{ formulario.as_p }}
-	<a class="waves-effect waves-teal"><input type="submit" value="Log in"></a>
+
+	<form class="row" action="" method="POST" enctype="multipart/form-data">
+		<div class="card col s6 offset-s3 formulario" id="division">
+			<div class="card-content">
+			{% csrf_token %}
+			 <span class="card-title center">Login</span>
+			{% for field in formulario %}
+				<div class="input-field col s12">
+					{{ field.errors }}
+					{{ field.label_tag }}
+					{{ field }}
+				</div>
+			{% endfor %}
+			<a class="right btn-small blue waves-effect waves-teal"><input type="submit" value="Iniciar sesión"></a>
+			<div class="col s12" id="espacio" ></div>
+
+
+			</div>
+		</div>
+		
+
+	</form>
 	{% endif %}
+		
 </body>
 </html>
