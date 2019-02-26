@@ -6,207 +6,82 @@
 {% block titulop %}
 {% endblock %}
 {% block contenido %}
-	<div class="row center">
-		<div class="col s10 offset-s1">
-			<h2 class="header">{{ sitio.nombre }}</h2>
-			<div class="card vertical">
-				<div class="card-content">
-					<div class="card-image">
-						<img src="/media/{{ sitio.imagen }}">
-					</div>
-				</div>
-				<div class="card-stacked">
-					<div class="card-content">
-						<p>{{ sitio.resenia }}</p>
-					</div>
-					<div class="card-tabs">
-						<ul class="tabs tabs-fixed-width">
-							<li class="tab"><a href="#submenu1">Datos de interés</a></li>
-							<li class="tab"><a href="#submenu2">Fecha de construcción</a></li>
-							<li class="tab"><a href="#submenu3">Ubicación</a></li></ul>
-					</div>
-					<div class="card-content">
-						<div id="submenu1">{{ sitio.datosInteres }}</div>
-						<div id="submenu2">{{ sitio.anio }}</div>
-						<div id="submenu3">{{ sitio.ubicacion }}</div>
-					</div>
-				</div>
-				<div class="card-tabs">
-						<ul class="tabs tabs-fixed-width">
-							<li class="tab"><a href="#submenuI1">Imagen 360 1</a></li>
-							<li class="tab"><a href="#submenuI2">Imagen 360 2</a></li>
-						</ul>
-				</div>
-				<div class="card-content">
-					<div class="card-image" id="submenuI1"><img src="/media/{{ sitio.imagenTSS }}"/></div>
-					<div class="card-image" id="submenuI2"><img src="/media/{{ sitio.imagenTSS1 }}"/></div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<img class="right" height="80" src="{{ sitio.imgQR }}">
-
-
-	        <div class="section">
-            <div class="row">
-                <div class="col l12">
-                    <article class="post-4556 post type-post status-publish format-standard has-post-thumbnail hentry category-rosemont tag-new-coffee-shops-montreal roaster-pilot moods-community purpose-business-meeting purpose-social-meetups purpose-work" id="post-4556">
-                        <div class="row">
-                            <div class="col l8 s12">
-                                <h2>
-                                    San Francisco
-                                </h2>
-                                <img alt="Paquebot" class="single-photo responsive-img z-depth-3 wp-post-image" height="600" sizes="(max-width: 800px) 100vw, 800px" src="/media/{{ sitio.imagen }}" width="800">
-                                    <div class="section">
-                                        <!-- 
-                                        <a class="btn white-text" href="https://adbeus.com/coffee/montreal/rosemont/" title="City">
-                                            Rosemont
-                                        </a>
-                                        ROASTERS -->
-                                        <style>
-                                            .beans-icon {
-                                    max-height: 24px;
-                                    margin: -7px 5px;
-                                }
-                                        </style>
-                                    </div>
-                                </img>
+<div class="section">
+    <div class="row">
+        <div class="col l12">
+            <article class="post-4556 post type-post status-publish format-standard has-post-thumbnail hentry category-rosemont tag-new-coffee-shops-montreal roaster-pilot moods-community purpose-business-meeting purpose-social-meetups purpose-work" id="post-4556">
+                <div class="row">
+                    <div class="col l8 s12">
+                        <h2>
+                            {{ sitio.nombre }}
+                        </h2>
+                        <img alt="Paquebot" class="single-photo responsive-img z-depth-3 wp-post-image" height="600" sizes="(max-width: 800px) 100vw, 800px" src="/media/{{ sitio.imagen }}" width="800">
+                            <div class="section">
+                                <!-- 
+                                <a class="btn white-text" href="https://adbeus.com/coffee/montreal/rosemont/" title="City">
+                                    Rosemont
+                                </a>
+                                ROASTERS -->
+                                <style>
+                                    .beans-icon {
+                            max-height: 24px;
+                            margin: -7px 5px;
+                        }
+                                </style>
                             </div>
-                            <div class="col l4 s12">
-                                <div class="card-panel alcaramel" style="min-height: 640px;">
-                                    <h6>
-                                        DETAILS
-                                    </h6>
-                                    <hr>
-                                        <span class="detail-title">
-                                            <i class="mdi-communication-location-on">
-                                            </i>
-                                            Address
-                                        </span>
-                                        <span class="">
-                                            carrera 4 con carrera 5
-                                        </span>
-                                        <hr>
-                                            <span class="detail-title">
-                                                <i class="mdi-action-store">
-                                                </i>
-                                                About
-                                            </span>
-                                            <span class="">
-                                                Coming soon...
-                                            </span>
-                                            <hr>
-                                                <span class="detail-title">
-                                                    <i class="mdi-device-access-time">
-                                                    </i>
-                                                    Opening Hours
-                                                </span>
-                                                <ul class="opening-hours">
-                                                    <li>
-                                                        Monday: 07:00 - 18:00
-                                                    </li>
-                                                    <li>
-                                                        Tuesday: 07:00 - 18:00
-                                                    </li>
-                                                    <li>
-                                                        Wednesday: 07:00 - 18:00
-                                                    </li>
-                                                    <li>
-                                                        Thursday: 07:00 - 18:00
-                                                    </li>
-                                                    <li>
-                                                        Friday: 07:00 - 18:00
-                                                    </li>
-                                                    <li>
-                                                        Saturday: 09:00 - 17:00
-                                                    </li>
-                                                    <li>
-                                                        Sunday: 09:00 - 17:00
-                                                    </li>
-                                                </ul>
-                                                    <span class="detail-title">
-                                                        <i class="mdi-maps-map">
-                                                        </i>
-                                                    </span>
+                        </img>
+                    </div>
 
-                                                    <hr>
-                                                        <span class="detail-title">
-                                                            <i class="mdi-image-photo-camera">
-                                                            </i>
-                                                            photo by
-                                                            <a href="https://instagram.com/APphoto.mtl/" target="_blank">
-                                                                photographer
-                                                            </a>
-                                                        </span>
-                                                        <hr>
-                                                            <!--  
-                                                            <a class="waves-effect waves-light btn modal-trigger" href="#edit-modal">
-                                                                Submit a change
-                                                            </a>
-                                                             Modal Structure -->
-                                                            <div class="modal bottom-sheet modal-fixed-footer" id="edit-modal">
-                                                                <form action="" method="POST">
-                                                                    <div class="modal-content">
-                                                                        <div class="row">
-                                                                            <div class="col s12">
-                                                                                <h4>
-                                                                                    Submit a change
-                                                                                </h4>
-                                                                                <div class="collection edit-options">
-                                                                                    <a class="collection-item" href="#">
-                                                                                        Coffee Shop closed permanently
-                                                                                    </a>
-                                                                                    <a class="collection-item" href="#">
-                                                                                        Opening Hours have changed
-                                                                                    </a>
-                                                                                    <a class="collection-item" href="#">
-                                                                                        This coffee shop is using a new roaster
-                                                                                    </a>
-                                                                                    <a class="collection-item" data-text="" href="#">
-                                                                                        Other
-                                                                                    </a>
-                                                                                </div>
-                                                                            </div>
-                                                                            <div class="input-field col s12">
-                                                                                <textarea class="materialize-textarea" id="edit_text" name="edit_text" rows="20">
-                                                                                </textarea>
-                                                                                <label for="edit_text">
-                                                                                    Some details about the change
-                                                                                </label>
-                                                                            </div>
-                                                                            <div class="input-field col s12">
-                                                                                <input class="validate" id="edit_email" name="edit_email" type="email" value="">
-                                                                                    <label for="edit_email">
-                                                                                        Your email address
-                                                                                    </label>
-                                                                                </input>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="modal-footer">
-                                                                        <input id="nonce" name="nonce" type="hidden" value="677bfeabea">
-                                                                            <input name="_wp_http_referer" type="hidden" value="/montreal/rosemont/paquebot/">
-                                                                                <button class="btn teal" name="action" type="submit" value="edit_shop">
-                                                                                    Submit
-                                                                                </button>
-                                                                            </input>
-                                                                        </input>
-                                                                        ss
-                                                                    </div>
-                                                                </form>
-                                                            </div>
-                                                        </hr>
-                                                    </hr>
-                                                </hr>
-                                            </hr>
-                                        </hr>
-                                    </hr>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-                </div>
-            </div>
+                    <div class="col l4 s12">
+                            <ul class="collapsible">
+    <li>
+      <div class="collapsible-header"><i class="material-icons">forum</i>Reseña</div>
+      <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+    </li>
+    <li>
+      <div class="collapsible-header"><i class="material-icons">event</i>Año</div>
+      <div class="collapsible-body"><span>{{ sitio.anio }}</span></div>
+    </li>
+    <li>
+      <div class="collapsible-header"><i class="material-icons">alarm</i>Horarios</div>
+      <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+    </li>
+    <li>
+      <div class="collapsible-header"><i class="material-icons">group_work</i>Tipo</div>
+      <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+    </li>
+    <li>
+      <div class="collapsible-header"><i class="material-icons">announcement</i>Datos de Interes</div>
+      <div class="collapsible-body"><span>{{ sitio.datosInteres }}</span></div>
+    </li>
+    <li>
+      <div class="collapsible-header"><i class="material-icons">account_balance</i>Arquitecto</div>
+      <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+    </li>
+    <li>
+      <div class="collapsible-header"><i class="material-icons">sentiment_very_satisfied</i>Patrono</div>
+      <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+    </li>
+    <li>
+      <div class="collapsible-header"><i class="material-icons">history</i>Principales cambios</div>
+      <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+    </li>
+    <li>
+      <div class="collapsible-header"><i class="material-icons">place</i>Ubicación</div>
+      <div class="collapsible-body"><span>{{ sitio.ubicacion }}</span></div>
+    </li>
+
+  </ul>
+                    </div>
+
+
+
+				
+            </article>
+            
         </div>
+    </div>
+</div>
+
 
 {% endblock %}
