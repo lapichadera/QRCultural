@@ -3,26 +3,22 @@
 {% block titulo %}
     Sitios
 {% endblock %}
-{% block titulop %}
-    <h2>Lista de productos</h2>
-{% endblock %}
-
 {% block contenido %}
-    <div class="row">
-    {% for s in lista %}
-      <div class="col s12 m6">
-        <a href="{% url 'detalle_sitio' id_s=s.id %}">
-          <div class="card">
-            <div class="card-image waves-effect waves-light">
-                <img src="/media/{{ s.imagen }}">
-                <span class="card-title">{{ s.nombre }}</span>
+
+  <div class="row">
+        {% for sitio in lista %}
+            <div class="col s8 m6">
+                <a href="{% url 'detalle_sitio' id_s=sitio.id %}">
+                    <div class="card">
+                        <div class="card-image waves-effect waves-light">
+                            <img src="/media/{{ sitio.imagen }}">
+                        </div>
+                        <div class="card-content">
+                            <h5 class="card-title black-text">{{ sitio.nombre }}</h5>
+                        </div>
+                    </div>
+                </a>
             </div>
-            <div class="card-content waves-effect waves-light">
-              <h5 class="black-text">{{ s.resenia }}</h5>
-            </div>
-          </div>
-        </a>
-      </div>
-    {% endfor %}
+        {% endfor %}
     </div>
 {% endblock %}
